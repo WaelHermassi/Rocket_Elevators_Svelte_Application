@@ -1,8 +1,8 @@
-<h2>Click To connect your wallet </h2>
 <script>
 import { connected, web3,walletType, selectedAccount, chainId, chainData } from 'svelte-web3'
 import { defaultEvmStores } from 'svelte-web3'
-import RocketTokenContract from "RocketToken.json"
+import RocketTokenContract from "./RocketToken.json"
+import { onMount } from 'svelte';
 const disable = () => defaultEvmStores.disconnect()
 
 defaultEvmStores.setProvider()
@@ -80,7 +80,7 @@ async function getContract(address) {
   <div id= "legit"></div>
   <div id="buyntf">
     Would you like to buy an NTF?
-    <button id="buttonbuy" on:click="{disable}">Yes</button>
+    <button id="buttonbuy" on:click="{onMount}">Yes</button>
     <button id="buttondontbuy" on:click="{disable}">No</button>
   </div>
 
