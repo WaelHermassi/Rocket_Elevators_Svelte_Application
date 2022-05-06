@@ -7,8 +7,9 @@
         width: 100%;
         height: 25%;
         background: rgba(0, 0, 0, 0.69);
-        top: 160px;
-        position: relative;
+        width: 100%;
+        top: 90%;
+        position: absolute;
     }
     #copyright{
         position: relative;
