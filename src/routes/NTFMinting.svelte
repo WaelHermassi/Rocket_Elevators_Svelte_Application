@@ -26,17 +26,15 @@ const gift = async()=> {
       function  showresult(res) {
         document.getElementById('legit').innerText =`${res}`
      }
-    
+  
 const CONTRACT_ADDRESS = '0x4D266d91e6bf8f111f0068E8990d43093FDA1b27';
 let contractInstance;
 $: checkAccount = $selectedAccount || '0x0000000000000000000000000000000000000000'
-$: balance = $connected ? $web3.eth.getBalance(checkAccount) : ''  
-onMount(
-  async () => {
-    message = 'Connecting...'
+$: balance = $connected ? $web3.eth.getBalance(checkAccount) : '' 
+
+onMount(async () => {
      await defaultEvmStores.setBrowserProvider()
-    message = ''
-    contractInstance = await getContract(CONTRACT_ADDRESS)
+     contractInstance = await getContract(CONTRACT_ADDRESS)
   })
 async function getContract(address) {
   const networkId = await $web3.eth.net.getId();
@@ -48,7 +46,8 @@ async function getContract(address) {
       gas: 2000000
     }
   );
-}     
+}  
+ 
 </script>
 
 {#if $web3.version}
